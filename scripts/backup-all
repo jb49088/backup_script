@@ -27,6 +27,7 @@ scripts=(
   "package-backup"
   "bash-backup"
   "direnv-backup"
+  "database-backup"
   "sql-backup"
   "wt-backup"
 )
