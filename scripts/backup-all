@@ -23,6 +23,7 @@ scripts=(
   "nvim-backup"
   "wsl-backup"
   "helix-backup"
+  "nftables-backup"
   "package-backup"
   "bash-backup"
   "direnv-backup"
