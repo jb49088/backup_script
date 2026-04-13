@@ -20,14 +20,15 @@ restic_backup() {
 
     local paths=()
     for path in "$@"; do
+        # If path exists on system, append to paths array
         [[ -e "$path" ]] && paths+=("$path")
     done
+    # If paths array is empty, return early
     ((${#paths[@]} == 0)) && return
 
     for repo in "${REPOSITORIES[@]}"; do
         restic --repo "$repo" backup "${paths[@]}" --tag "$tag"
         restic --repo "$repo" forget --tag "$tag" --host "$HOSTNAME" --keep-last "$keep" --prune
-        echo "Backed up and pruned $tag ($HOSTNAME) in $repo"
     done
 }
 
@@ -77,18 +78,20 @@ backup() {
         backup_wsl
         backup_wt
         backup_zsh
+
         return
     fi
 
     for target in "${targets[@]}"; do
-        local function="backup_$target"
+        local fn="backup_$target"
 
-        if ! declare -f "$function" >/dev/null; then
+        # Check if function exists
+        if ! declare -f "$fn" >/dev/null; then
             echo "Unknown target: $target" >&2
             exit 1
         fi
 
-        "$function"
+        "$fn"
     done
 }
 
