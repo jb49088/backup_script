@@ -57,7 +57,7 @@ backup_redshift() { restic_backup redshift 1 "$HOME/.config/redshift"; }
 backup_services() { restic_backup services 1 "/etc/systemd/system/riven-sniper.service" "/etc/systemd/system/qbittorrent-nox.service"; }
 backup_sql() { restic_backup sql 7 "$HOME/sql"; }
 backup_sqliterc() { restic_backup sqliterc 1 "$HOME/.sqliterc"; }
-backup_ssh() { restic_backup ssh 1 "$HOME/.ssh"; }
+backup_ssh() { restic_backup ssh 1 "$HOME/.ssh" "$WIN_HOME/.ssh"; }
 backup_vault() { restic_backup vault 7 "$HOME/vault"; }
 backup_wireguard() { restic_backup wireguard 1 "/etc/wireguard"; }
 backup_wsl() { restic_backup wsl 1 "/etc/wsl.conf" "$WIN_HOME/.wslconfig"; }
