@@ -48,6 +48,7 @@ backup_icons() { restic_backup icons 1 "$HOME/icons"; }
 backup_kakoune() { restic_backup kakoune 7 "$HOME/.config/kak"; }
 backup_lightdm() { restic_backup lightdm 1 "/etc/lightdm/lightdm.conf"; }
 backup_navidrome() { restic_backup navidrome 1 "/etc/navidrome/navidrome.toml"; }
+backup_networkmanager() { restic_backup networkmanager 1 "/etc/NetworkManager/NetworkManager.conf"; }
 backup_nftables() { restic_backup nftables 1 "/etc/nftables.conf"; }
 backup_nvim() { restic_backup nvim 7 "$HOME/.config/nvim"; }
 backup_packages() { restic_backup packages 1 "$HOME/packages"; }
@@ -86,6 +87,7 @@ backup() {
         backup_lightdm
         backup_navidrome
         backup_nftables
+        backup_networkmanager
         backup_nvim
         backup_packages
         backup_poc
